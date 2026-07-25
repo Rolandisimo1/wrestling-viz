@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCAA Wrestling Study — Interactive Visualizations</title>
+<style>
+:root{--ink:#1a1a1a;--accent:#1b5e20;--maroon:#7a1f2b;}
+*{box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;color:var(--ink);background:#f7f7f5;line-height:1.55;}
+header{background:linear-gradient(135deg,#1b5e20,#0d3010);color:#fff;padding:34px 20px 28px;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+h1{font-size:26px;margin:0 0 6px;} header p{margin:0;opacity:.9;font-size:14px;max-width:640px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin:26px auto;}
+.card{background:#fff;border-radius:10px;padding:18px;text-decoration:none;color:inherit;border:1px solid #e6e6e6;transition:transform .12s,box-shadow .12s;display:block;}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.09);border-color:var(--accent);}
+.card h2{font-size:17px;margin:0 0 6px;color:var(--accent);}
+.card p{font-size:13px;color:#555;margin:0 0 8px;}
+.card .tag{display:inline-block;font-size:11px;background:#eef6ee;color:var(--accent);padding:2px 8px;border-radius:10px;margin-right:5px;}
+.card .mobile{background:#f0eef6;color:#5a3a9a;}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#999;margin:24px auto 4px;font-weight:600;}
+footer{max-width:900px;margin:20px auto 50px;padding:0 20px;font-size:12px;color:#999;}
+</style></head><body>
+<header><div class="wrap">
+<h1>NCAA Wrestling: A Century of Data</h1>
+<p>Interactive visualizations from a study of NCAA Division I wrestling (1928–2026) and the high-school pipeline that feeds it — program trajectories, recruit development, coaching histories, and individual careers.</p>
+</div></header>
+<div class="wrap">
+
+<div class="section-label">Recruit &amp; Program Analysis</div>
+<div class="grid">
+<a class="card" href="recruit_explorer.html">
+  <h2>Recruit Explorer</h2>
+  <p>Every wrestler who placed at Fargo freestyle and reached the NCAAs, plotted by high-school finish vs. total NCAA points. Filter by school and year; find over- and under-achievers.</p>
+  <span class="tag">interactive</span><span class="tag mobile">mobile</span>
+</a>
+<a class="card" href="ncaa_program_timeline.html">
+  <h2>Program Trajectories</h2>
+  <p>Compare 2–4 programs over time: recruiting-class rank vs. NCAA team points, with a school-effect signal and coaching-change markers.</p>
+  <span class="tag">interactive</span><span class="tag mobile">mobile</span>
+</a>
+<a class="card" href="ncaa_college_explorer.html">
+  <h2>College Explorer</h2>
+  <p>Program-by-program placement history — every All-American finish, wrestler by wrestler, across the full era.</p>
+  <span class="tag">interactive</span>
+</a>
+</div>
+
+<div class="section-label">Coaching</div>
+<div class="grid">
+<a class="card" href="coaching_grid.html">
+  <h2>Coaching Grid</h2>
+  <p>Who coached where and when — colleges on one axis, years on the other, each program in its school colors with coaching eras shaded by recency.</p>
+  <span class="tag">interactive</span>
+</a>
+</div>
+
+<div class="section-label">Phone-optimized versions</div>
+<div class="grid">
+<a class="card" href="ncaa_college_explorer_mobile.html"><h2>College Explorer (mobile)</h2><p>Touch-optimized version of the college explorer.</p><span class="tag mobile">mobile</span></a>
+<a class="card" href="coaching_grid_mobile.html"><h2>Coaching Grid (mobile)</h2><p>Touch-optimized version of the coaching grid.</p><span class="tag mobile">mobile</span></a>
+</div>
+
+</div>
+<footer class="wrap">
+Data: NCAA championship brackets (re-parsed from source PDFs, 1928–2026) and Fargo/USMC Junior &amp; 16U national placements (1971–2025).
+All visualizations are self-contained single files. &middot; Built with Claude Science.
+</footer>
+</body></html>
