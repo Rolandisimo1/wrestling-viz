@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NCAA D1 Wrestling — Placewinners by College</title>
 <style>
   body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#222; background:#fafafa; }
@@ -134,15 +135,17 @@ function draw(college){
     m.style.cursor='pointer';
     const placeTxt=placed?['','1st','2nd','3rd','4th','5th','6th','7th','8th'][r.p]:'Qualifier (no place)';
     const seedTxt=r.s!=null?`seed #${r.s}`:'unseeded';
-    m.addEventListener('mousemove',(ev)=>{
+    const showTip=(cx,cy)=>{
       tip.innerHTML=`<b>${r.n}</b><br>${r.y} &middot; ${r.wl} lbs<br>${placeTxt} &middot; ${seedTxt}`;
       tip.style.opacity=1;
       const tw=tip.offsetWidth||180, th=tip.offsetHeight||48;
-      let lx=ev.clientX+14, ty=ev.clientY+14;
-      if(lx+tw>window.innerWidth-8) lx=ev.clientX-tw-14;
-      if(ty+th>window.innerHeight-8) ty=ev.clientY-th-14;
-      tip.style.left=Math.max(4,lx)+'px'; tip.style.top=Math.max(4,ty)+'px'; });
+      let lx=cx+14, ty=cy+14;
+      if(lx+tw>window.innerWidth-8) lx=cx-tw-14;
+      if(ty+th>window.innerHeight-8) ty=cy-th-14;
+      tip.style.left=Math.max(4,lx)+'px'; tip.style.top=Math.max(4,ty)+'px'; };
+    m.addEventListener('mousemove',(ev)=>showTip(ev.clientX,ev.clientY));
     m.addEventListener('mouseleave',()=>{ tip.style.opacity=0; });
+    m.addEventListener('touchstart',(ev)=>{ const t=ev.touches[0]; if(t){showTip(t.clientX,t.clientY); ev.preventDefault();} },{passive:false});
     svg.appendChild(m);
   }
   const nPlace=recs.filter(r=>r.p!=null).length, nChamp=recs.filter(r=>r.p===1).length;
